@@ -1,27 +1,62 @@
 document.addEventListener("DOMContentLoaded", () => {
-  taskForm.addEventListener("submit", createNewTask)
+  //grab all the necessary DOM elements
+
+  //form and relevant input fields
+  const newTaskForm = document.getElementById("create-task-form");
+  const newTaskDescription = document.getElementById("new-task-description");
+  const newTaskPriority = document.getElementById("new-task-priority");
+
+  //ul where new tasks will live on the DOM
+  const newTaskUl = document.getElementById("tasks");
+
+  //attach event listeners
+  newTaskForm.addEventListener("submit", createNewTask);
 });
 
-const taskForm = document.getElementById("create-task-form");
-const newTaskDescription = document.getElementById("new-task-description");
-const newTask = document.getElementById("tasks");
-const newTaskPriority = document.getElementById("new-task-priority");
-
-const createNewTask = e => {
-  e.preventDefault();
+const createNewTask = event => {
+  event.preventDefault();
+  //stop form from trying to submit
   const newTaskDescription = document.getElementById("new-task-description");
   const newTask = document.createElement("li");
   newTask.innerText = newTaskDescription.value;
 
   appendNewTask(newTask);
-  e.target.reset();
+  event.target.reset();
 };
 
 const appendNewTask = task => {
   document.getElementById("tasks").appendChild(task);
 };
 
-let button = document.createElement("button");
 
-  button.textContent = 'x';
-  li.appendChild(button);
+
+
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   taskForm.addEventListener("submit", createNewTask)
+// });
+
+// const taskForm = document.getElementById("create-task-form");
+// const newTaskDescription = document.getElementById("new-task-description");
+// const newTask = document.getElementById("tasks");
+// const newTaskPriority = document.getElementById("new-task-priority");
+
+// const createNewTask = e => {
+//   e.preventDefault();
+//   const newTaskDescription = document.getElementById("new-task-description");
+//   const newTask = document.createElement("li");
+//   newTask.innerText = newTaskDescription.value;
+
+//   appendNewTask(newTask);
+//   e.target.reset();
+// };
+
+// const appendNewTask = task => {
+//   document.getElementById("tasks").appendChild(task);
+// };
+
+// let button = document.createElement("button");
+
+//   button.textContent = 'x';
+//   li.appendChild(button);
